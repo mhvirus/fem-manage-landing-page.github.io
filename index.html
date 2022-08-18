@@ -15,20 +15,28 @@
     <!-- header start -->
     <header class="primary-header">
       <div class="container">
-        <!-- logo -->
-        <a href="#"><img src="./images/logo.svg" alt="Manage"></a>
-        <!-- navbar -->
-        <nav class="primary-navagation">
-          <ul role="list" class="nav-list" aria-label="primary">
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Community</a></li>
-          </ul>
-        </nav>
-        <!-- cta button -->
-        <button class="button">Get Started</button>
+        <div class="nav-wrapper">
+          <!-- logo -->
+          <a href="#"><img src="./images/logo.svg" alt="Manage"></a>
+          <!-- hamburger menu button for mobile -->
+          <button class="mobile-nav-toggle" aria-controls="primary-navagition" aria-expanded="false">
+            <img src="./images/icon-close.svg" class="icon-close" aria-hidden="true">
+            <img src="./images/icon-hamburger.svg" class="icon-hamburger" aria-hidden="true">
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <!-- navbar -->
+          <nav class="primary-navagition" id="primary-navagition">
+            <ul role="list" class="nav-list" aria-label="primary">
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Community</a></li>
+            </ul>
+          </nav>
+          <!-- cta button -->
+          <button class="button | diaplay-sm-none display-md-inline-flex">Get Started</button>
+        </div>
       </div>
     </header>
 
