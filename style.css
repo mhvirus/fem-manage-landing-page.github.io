@@ -127,6 +127,21 @@ body {
   color: var(--clr-primary-400);
 }
 
+/* 
+  p:not([class]) selector use so the p element
+  that have class should not have these
+  properies apply to them
+ */
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 35ch;
+}
+
+/*  */
+p[data-width="wide"] {
+  max-width: 42ch;
+}
+
 /* button component */
 .button {
   display: inline-flex;
@@ -338,6 +353,38 @@ body {
 }
 
 /* uitility for spaceing for whole website */
+
+/*
+  class flow add the spacing 0r styling on
+  element in the paraent element except the
+  first child of the element.
+  for this we use * + * but there is an othre
+  way which is to use the :not(:first-child) 
+  selector but this could be a problem because
+  of the specificity of the selector. to avoid
+  this we use the :where(.flow :not(:first-child))
+  selector. the advantage of this is that it
+  have the specificity of the '0' if we ever 
+  want go in the parent element and the specify
+  the property to its child. it will first apply
+  the property to the child not the parent.
+  *Note: usually uititlity classes are used for
+  *      that when we apply the property to the
+  *      element it should not get in the way.
+  *      the specificity of the uiltility class
+  *      should always be as low as possible.
+  ?the three properties are:
+  *      * + *, it's ok but not readable.
+  *      :not(:first-child), it's ok but specificity is high.
+  *      :where(.flow :not(:first-child)), the best way to do it.
+  beacuse of the custom variable "--flow-spacer" we can
+  change or overwrite the spacing of the elements very easly.
+ */
+ :where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+} 
+
+/* container will add spacing around the whole body */
 .container {
   --max-width: 1110px;
   --padding: 1rem;
@@ -348,10 +395,10 @@ body {
 }
 
 /* 
-  uitility for having two columns in one div
-  with equal space each have, and with 16px gap
-  between them. media query for small screens
-  so it also works on mobile.
+  .even-columns uitility for having two columns
+  in one div with equal space each have, and
+  with 16px gap between them. media query for
+  small screensso it also works on mobile.
  */
 .even-columns {
   display: grid;
@@ -364,6 +411,7 @@ body {
    grid-auto-columns: 1fr;
   }
 }
+
 
 .diaplay-sm-none {
   display: none;
