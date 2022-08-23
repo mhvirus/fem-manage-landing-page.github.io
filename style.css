@@ -406,6 +406,72 @@ input:where([type="email"], [type="text"]) {
 .footer-nav a:is(:hover, :focus) {
   color: var(--clr-accent-400);
 }
+
+/* list style for blog section */
+/* adding number is the list */
+.numbered-items{
+  counter-reset: count;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.numbered-items li {
+  counter-increment: count;
+}
+.numbered-items div::before,
+.numbered-items div::after {
+  height: 40px;
+}
+
+.numbered-items div::after {
+  content: "0" counter(count);
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-accent-400);
+  color: var(--clr-accent-100);
+  font-weight: var(--fw-bold);
+  padding: 0 var(--size-400);
+  border-radius: 100vw;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+@media (max-width: 30em) {
+  .numbered-items div::before {
+    content: "";
+    position: block;
+    border-radius: 100vw;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    z-index: -1;
+    background-color: var(--clr-accent-100);
+    box-shadow: 5em 0 0 var(--clr-accent-100);
+  }
+}
+
+
+.numbered-items div{
+  display: grid;
+  position: relative;
+  align-items: center;
+  gap: var(--size-400);
+  grid-template-columns: min-content 1fr;
+}
+.numbered-items__title {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  line-height: 1;
+}
+
+.numbered-items__body {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 30em) {
+  .numbered-items__body {
+    grid-column: 2 / -1;
+  }
+}
 /* *Utility classes */
 
 /* hide the element completely */
@@ -436,6 +502,29 @@ input:where([type="email"], [type="text"]) {
 .text-neutral-900 {
   color: var(--clr-neutral-900);
 }
+
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  margin-inline: auto;
+}
+
+@media (max-width: 50em) {
+  .text-center-sm-only {
+    text-align: center;
+  }
+
+  .text-center-sm-only p {
+    margin-inline: auto;
+  }
+
+  .p-sp {
+    margin-inline: auto;
+  }
+}
+
 
 .bg-primary-400 {
   background-color: var(--clr-primary-400);
@@ -492,6 +581,10 @@ input:where([type="email"], [type="text"]) {
 
 .padding-block-700 {
   padding-block: var(--size-700);
+}
+
+.margin-bottom-700 {
+  margin-block-end: var(--size-700);
 }
 
 /* uitility for spaceing for whole website */
