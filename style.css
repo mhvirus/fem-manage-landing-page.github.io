@@ -475,85 +475,75 @@ input:where([type="email"], [type="text"]) {
 }
 
 /* *slider css */
-.slider {
-  display: flex;
-  gap: var(--size-600);
-  list-style: none;
-  scroll-padding-inline: 25px;
-}
-
-.ally-slider-container {
-  margin-block: var(--size-700);
-  margin-inline: var(--size-400);
-}
-
-.slider > * {
+.carousel {
   position: relative;
-  flex: 0 0 auto;
-  width: 100%;
+  height: 100%;
 }
-
-@media (min-width: 30em) {
-  .ally-slider-container {
-    margin-inline: 0;
-  }
-  .slider > * {
-    width: 50%;
-  }
-}
-
-@media (min-width: 50em) {
-  .slider > * {
-    width: 37%;
-  }
-}
-
-.slider-content {
-  background-color: var(--clr-neutral-200);
-  border-radius: var(--size-100);
-  padding: var(--size-700) var(--size-600);
-}
-
-.slider img {
-  width: var(--size-800);
-  position: relative;
-  inset: 0;
-  top: calc(var(--size-400) / 2);
-  margin-inline: auto;
-}
-
-
-.a11y-slider-dots li {
-  display: flex !important;
-  justify-content: center !important;
-  
-  width: 12px;
-  height: 12px;
-  /* margin-inline: 5rem; */
-
-}
-/*
- .ally-slider-dots {
-  display: flex !important;
-  gap: 1rem !important;
-}
- */
-
-.mycustombtn {
-  display: block;
-  font-size: 0;
-  border: 1px solid var(--clr-accent-400);
-  background: transparent;
+.swiper {
   width: 100%;
   height: 100%;
-  border-radius: 100%;
+  overflow:visible;
 }
 
-.mycustombtn:active,
-.mycustombtn:hover,
-.mycustombtn:focus {
-  background: var(--clr-accent-400);
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  overflow:visible;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: -2rem !important;
+}
+
+.swiper-button-next {
+  background-color: var(--clr-accent-400);
+  border-radius: 100vw;
+}
+
+.swiper-button-prev {
+  background-color: var(--clr-accent-400);
+  border-radius: 100vw;
+}
+.wrap {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-neutral-200);
+}
+
+.wrap img {
+  display: block;
+  position: relative;
+  inset: 0;
+  top: -1rem;
+  margin-inline: auto;
+  width: var(--size-800);
+  object-fit: cover;
+}
+
+.wrap p {
+  margin-bottom: 2em;
+}
+
 
 /* *Utility classes */
 
@@ -666,8 +656,16 @@ input:where([type="email"], [type="text"]) {
   padding-block: var(--size-700);
 }
 
+.margin-to-500 {
+  margin-top: var(--size-700);
+}
+
 .margin-bottom-700 {
   margin-block-end: var(--size-700);
+}
+
+.margin-bottom-500 {
+  margin-block-end: var(--size-500);
 }
 
 /* uitility for spaceing for whole website */

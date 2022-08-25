@@ -1,7 +1,6 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable block-spacing */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
+
 const primaryHeader = document.querySelector('.primary-header');
 const navToggel = document.querySelector('.mobile-nav-toggle');
 const primartyNav = document.querySelector('.primary-navagition');
@@ -13,18 +12,26 @@ navToggel.addEventListener('click', () => {
   primaryHeader.toggleAttribute('data-overlay');
 });
 
-const slider = new A11YSlider(document.querySelector('.slider'), {
-  adaptiveHeight: true,
-  centerMode: true,
-  arrows: false,
-  // eslint-disable-next-line func-names, prefer-template,space-before-function-paren
-  customPaging: function(index, a11ySlider) { return '<button class="mycustombtn">' + index + '</button>';},
-  responseive: {
-    480: {
-      dots: true,
+// eslint-disable-next-line no-unused-vars
+const swiper = new Swiper('.mySwiper', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 1,
     },
-    560: {
-      dots: false, // dots enabled 1280px and up
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 20,
     },
   },
 });
